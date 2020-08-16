@@ -1,28 +1,28 @@
-from typing import List
-
 class NumberOfIslands:
-    def dfs(self, grid, r, c):
-        if r < 0 or c < 0 or r >= len(grid) or c >= len(grid[0]) or grid[r][c] == '0':
-            return
-        else:
-            grid[r][c] = '0'
-            self.dfs(grid, r - 1, c)
-            self.dfs(grid, r + 1, c)
-            self.dfs(grid, r, c - 1)
-            self.dfs(grid, r, c + 1)
-
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def numIslands(self, grid):
         if not grid:
             return 0
         R = len(grid)
         C = len(grid[0])
-        count = 0
+
+        islands = 0
         for r in range(R):
             for c in range(C):
                 if grid[r][c] == '1':
-                    self.dfs(grid, r, c)
-                    count += 1
-        return count
+                    self.dfs(r, c, R, C, grid)
+                    islands += 1
+
+        return islands
+
+    def dfs(self, r, c, R, C, grid):
+        if r < 0 or c < 0 or r > R - 1 or c > C - 1 or grid[r][c] == '0':
+            return
+        else:
+            grid[r][c] = '0'
+            self.dfs(r + 1, c, R, C, grid)
+            self.dfs(r - 1, c, R, C, grid)
+            self.dfs(r, c + 1, R, C, grid)
+            self.dfs(r, c - 1, R, C, grid)
 
 
 if __name__ == '__main__':

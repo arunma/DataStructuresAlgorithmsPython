@@ -20,13 +20,13 @@ class ParallelCoursesII:
         div, mod = divmod(len(slice), k)
         return div + 1
 
-    def topologicalSort(self, v, graph, visited, stack):
+    def topologicalSort(self, v, graph, visited, lst):
         visited[v] = True
         for u in graph[v]:
             if not visited[u]:
-                self.topologicalSort(u, graph, visited, stack)
+                self.topologicalSort(u, graph, visited, lst)
 
-        stack.insert(0, v)
+        lst.insert(0, v)
 
 
 if __name__ == '__main__':
