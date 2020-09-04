@@ -7,23 +7,22 @@ class DesignLogStorageSystem:
 
     def __init__(self):
         self.store = {}
-        self.idx_map = {'Year': 1, 'Month': 2, 'Day': 3, 'Hour': 4, "Minute": 5, "Second": 6}
+        self.gran_index = {"Year": 1, "Month": 2, "Day": 3, "Hour": 4, "Minute": 5, "Second": 6}
 
     def put(self, id: int, timestamp: str) -> None:
         key = tuple(timestamp.split(":"))
         self.store[key] = id
 
-    def retrieve(self, st: str, ed: str, gra: str) -> List[int]:
-        idx = self.idx_map[gra]
-        start = tuple(st.split(":")[:idx])
-        end = tuple(ed.split(":")[:idx])
+    def retrieve(self, s: str, e: str, gra: str) -> List[int]:
+        gidx = self.gran_index[gra]
+        start = tuple(s.split(":")[:gidx])
+        end = tuple(e.split(":")[:gidx])
+
         result = []
-
-        for key, value in self.store.items():
-            rel_key = tuple(key[:idx])
-            if start <= rel_key <= end:
-                result.append(value)
-
+        for stime, id in self.store.items():
+            ttime = tuple(stime[:gidx])
+            if start <= ttime <= end:
+                result.append(id)
         return result
 
 

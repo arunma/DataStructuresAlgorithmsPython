@@ -1,14 +1,21 @@
 class SquareRoot:
     def mySqrt(self, x: int) -> int:
-        l, r = 0, x
-        while l <= r:
-            mid = l + (r - l) // 2
-            if mid * mid <= x < (mid + 1) * (mid + 1):
+        # r = x
+        # while r * r > x:
+        #     r = (r + x / r) / 2
+        # return r
+        left=2
+        right=x//2
+        while left<=right:
+            mid=left+(right-left)//2
+            num=mid*mid
+            if num==x:
                 return mid
-            elif mid * mid > x:
-                r = mid
+            elif num>x:
+                right=mid-1
             else:
-                l = mid + 1
+                left=mid+1
+        return right
 
 
 if __name__ == '__main__':

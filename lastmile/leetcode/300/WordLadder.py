@@ -16,6 +16,7 @@ class WordLadder:
 
         while queue:
             curr, level=queue.pop(0)
+            visited[curr]=True
             for i in range(N):
                 inter=curr[:i]+'*'+curr[i+1:]
                 for val in combo_dict[inter]:
@@ -24,7 +25,6 @@ class WordLadder:
                     else:
                         if not val in visited:
                             queue.append((val, level+1))
-                            visited[val]=True
 
         return 0
 

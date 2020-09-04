@@ -3,21 +3,21 @@ from typing import List
 
 class InsertInterval:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-        result=[]
-        merge=newInterval
-        for i, curr_interval in enumerate(intervals):
-            currstart, currend=curr_interval
-            if currend<merge[0]:
-                result.append(curr_interval)
-            elif currstart>merge[1]:
-                result.append(merge)
-                return result+intervals[i:]
+        result = []
+        merged = newInterval
+        for i, cinterval in enumerate(intervals):
+            cstart, cend = cinterval
+            if cend < merged[0]:
+                result.append(cinterval)
+            elif cstart > merged[1]:
+                result.append(merged)
+                return result + intervals[i:]
             else:
-                merge[0]=min(currstart, merge[0])
-                merge[1]=max(currend, merge[1])
-        result.append(merge)
-        return result
+                merged[0] = min(merged[0], cstart)
+                merged[1] = max(merged[1], cend)
 
+        result.append(merged)
+        return result
 
 
 

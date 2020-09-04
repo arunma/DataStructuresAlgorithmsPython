@@ -15,9 +15,7 @@ class NumberOfIslands:
         return islands
 
     def dfs(self, r, c, R, C, grid):
-        if r < 0 or c < 0 or r > R - 1 or c > C - 1 or grid[r][c] == '0':
-            return
-        else:
+        if -1<r<R and -1<c<C and grid[r][c] == '1':
             grid[r][c] = '0'
             self.dfs(r + 1, c, R, C, grid)
             self.dfs(r - 1, c, R, C, grid)
@@ -42,4 +40,6 @@ if __name__ == '__main__':
         ['0', '0', '0', '1', '1'],
     ]
     print(init.numIslands(grid2))  # 3
-    print(init.numIslands([]))  # 3
+    print(init.numIslands([]))  # 0
+
+

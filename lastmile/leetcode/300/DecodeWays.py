@@ -47,3 +47,4 @@ if __name__ == '__main__':
     init = DecodeWays()
     print(init.numDecodings("12"))  # 2
     print(init.numDecodings("226"))  # 3
+    print(init.numDecodings("132226"))  # 3

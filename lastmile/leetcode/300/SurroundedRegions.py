@@ -27,14 +27,21 @@ class SurroundedRegions:
                     board[r][c] = 'O'
         return board
 
+    # def dfs(self, board, R, C, r, c):
+    #     if r < 0 or c < 0 or r == R or c == C or board[r][c] == 'X' or board[r][c]=='*':
+    #         return
+    #     if board[r][c] == 'O':
+    #         board[r][c] = '*'
+    #     neigbours = [(1, 0), (-1, 0), (0, -1), (0, 1)]
+    #     for ro, co in neigbours:
+    #         self.dfs(board, R, C, r + ro, c + co)
+
     def dfs(self, board, R, C, r, c):
-        if r < 0 or c < 0 or r == R or c == C or board[r][c] == 'X' or board[r][c]=='*':
-            return
-        if board[r][c] == 'O':
-            board[r][c] = '*'
-        neigbours = [(1, 0), (-1, 0), (0, -1), (0, 1)]
-        for ro, co in neigbours:
-            self.dfs(board, R, C, r + ro, c + co)
+        board[r][c] = '*'
+        npairs = [(r-1, c), (r+1, c), (r, c-1), (r, c+1)]
+        for nrow, ncol in npairs:
+            if -1 < nrow < R and -1 < ncol < C and board[nrow][ncol]=='0':
+                self.dfs(board, R, C, nrow, ncol)
 
 
 if __name__ == '__main__':
@@ -54,6 +61,11 @@ if __name__ == '__main__':
     board = [["X", "O", "X"],
              ["O", "X", "O"],
              ["X", "O", "X"]]
+    '''
+    [['X', 'O', 'X'], 
+    ['O', 'X', 'O'], 
+    ['X', 'O', 'X']]
+    '''
 
     print(init.solve(board))
 

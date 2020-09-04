@@ -17,7 +17,6 @@ class MostVisitedSectorInACircularTrack:
                 if curr > n:
                     curr = 1
         count[curr] += 1
-
         mx = max(count.values())
         return sorted([k for k, v in count.items() if v == mx])
 
