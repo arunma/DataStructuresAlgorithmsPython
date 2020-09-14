@@ -2,7 +2,16 @@ from typing import List
 
 
 class MaximumNumberOfCoinsYouCanGet:
+
     def maxCoins(self, piles: List[int]) -> int:
+        piles.sort(reverse=True)
+        N=len(piles)
+        tot=0
+        for i in range(1,N-N//3, 2):
+            tot+=piles[i]
+        return tot
+
+    def maxCoins1(self, piles: List[int]) -> int:
         piles.sort(reverse=True)
         bobs=len(piles)//3
         piles=piles[:-bobs]

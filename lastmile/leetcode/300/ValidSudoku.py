@@ -3,31 +3,41 @@ from typing import List
 
 class ValidSudoku:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        return self.is_row_valid(board) and self.is_column_valid(board) and self.is_square_valid(board)
+        if not board:
+            return False
 
-    def is_row_valid(self, board):
-        for row in board:
-            if not self.is_unit_valid(row):
+        return self.isRowsValid(board) and self.isColsValid(board) and self.isBlocksValid(board)
+
+    def isRowsValid(self, board):
+        for r in board:
+            if not self.isArrayValid(r):
                 return False
         return True
 
-    def is_column_valid(self, board):
-        for col in list(zip(*board)):
-            if not self.is_unit_valid(col):
+    def isColsValid(self, board):
+        for c in list(zip(*board)):
+            if not self.isArrayValid(c):
                 return False
         return True
 
-    def is_square_valid(self, board):
-        for r in (0, 3, 6):
-            for c in (0, 3, 6):
+    def isBlocksValid(self, board):
+        R = len(board)
+        C = len(board[0])
+
+        for r in range(0, R, 3):
+            for c in range(0, C, 3):
                 minboard = [board[x][y] for x in range(r, r + 3) for y in range(c, c + 3)]
-                if not self.is_unit_valid(minboard):
+                if not self.isArrayValid(minboard):
                     return False
         return True
 
-    def is_unit_valid(self, lst):
-        unit = [x for x in lst if x != '.']
-        return len(set(unit)) == len(unit)
+    def isArrayValid(self, arr):
+        seen = set()
+        for num in arr:
+            if num != '.' and num in seen:
+                return False
+            seen.add(num)
+        return True
 
 
 if __name__ == '__main__':

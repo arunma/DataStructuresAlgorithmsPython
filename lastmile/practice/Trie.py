@@ -3,7 +3,7 @@ from collections import defaultdict
 
 class TrieNode:
     def __init__(self):
-        self.children = defaultdict()
+        self.children = {}
         self.end = False
 
 
@@ -47,3 +47,9 @@ if __name__ == '__main__':
     print(init.check("hello"))  # true
     print(init.delete("hello"))  # true
     print(init.check("hello"))  # true
+# None
+# None
+# False
+# True
+# True
+# False
