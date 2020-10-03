@@ -22,20 +22,37 @@ class KthSmallestInBST:
     #
     # def inorder_traversal(self, root):
     #     return self.inorder_traversal(root.left) + [root.val] + self.inorder_traversal(root.right) if root else []
-    def kthSmallest(self, root: TreeNode, k: int) -> int:
-        pq=[]
-        queue=[root]
-        while queue:
-            node=queue.pop(0)
-            heapq.heappush(pq, -node.val)
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
-            if len(pq)>k:
-                heapq.heappop(pq)
+    # def kthSmallest(self, root: TreeNode, k: int) -> int:
+    #     pq=[]
+    #     queue=[root]
+    #     while queue:
+    #         node=queue.pop(0)
+    #         heapq.heappush(pq, -node.val)
+    #         if node.left:
+    #             queue.append(node.left)
+    #         if node.right:
+    #             queue.append(node.right)
+    #         if len(pq)>k:
+    #             heapq.heappop(pq)
+    #
+    #     return -pq[0]
 
-        return -pq[0]
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
+
+        node = root
+        stack = []
+
+        while stack or node:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack.pop()
+                k -= 1
+                if k == 0:
+                    return node.val
+                node = node.right
+        return -1
 
 
 if __name__ == '__main__':

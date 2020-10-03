@@ -1,6 +1,8 @@
 class ValidPalindrome:
     def isPalindrome(self, s: str) -> bool:
-        chars= ''.join([c.lower() if c.isalnum() else '' for c in s])
+
+        chars = [c.lower() for c in s if c.isalnum() and c != ' ']
+
         left = 0
         right = len(chars) - 1
 
@@ -9,8 +11,8 @@ class ValidPalindrome:
                 return False
             left += 1
             right -= 1
-        return True
 
+        return True
 
 if __name__ == '__main__':
     init = ValidPalindrome()

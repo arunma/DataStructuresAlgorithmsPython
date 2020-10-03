@@ -2,42 +2,40 @@ from typing import List
 
 
 class RemoveInvalidParenthesis:
-    def removeInvalidParentheses(self, s):
-        queue=[]
-        queue.append(s)
+    def removeInvalidParentheses(self, s: str) -> List[str]:
+        queue = [s]
 
-        result=[]
-
-        seen=set()
-        found=False
+        seen = set()
+        found = False
+        result = []
         while queue:
-            curr=queue.pop(0)
+            curr = queue.pop(0)
             if curr not in seen:
                 seen.add(curr)
 
                 if self.isValid(curr):
+                    found = True
                     result.append(curr)
-                    found=True
                 if found:
                     continue
-                for i in range(len(curr)):
-                    if curr[i]!='(' and curr[i]!=')':
-                        continue
-                    next=curr[:i]+curr[i+1:]
-                    queue.append(next)
+                else:
+                    for i in range(len(curr)):
+                        if curr[i] not in "()":
+                            continue
+                        queue.append(curr[:i] + curr[i + 1:])
+
         return result
 
     def isValid(self, s):
-        count=0
+        count = 0
         for c in s:
-            if c=='(':
-                count+=1
-            elif c==')':
-                count-=1
-                if count<0:
+            if c == '(':
+                count += 1
+            elif c == ')':
+                count -= 1
+                if count < 0:
                     return False
-
-        return count==0
+        return count == 0
 
 
 
