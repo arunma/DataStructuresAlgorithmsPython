@@ -14,7 +14,7 @@ class PartitionEqualSubsetSum:
         dp = [False] * (target + 1)
         dp[0] = True
         for num in nums:
-            for csum in reversed(range(target + 1)):
+            for csum in range(target + 1):
                 if csum >= num:
                     dp[csum] = dp[csum] or dp[csum - num]
 

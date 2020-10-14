@@ -13,13 +13,13 @@ class WordBreakII:
             result.append(' '. join(curr))
             return
 
-        if self.canSplit(s, wordDict): #Does pruning
-            for i in range(index+1, len(s)+1):
-                subs=s[index:i]
-                if subs in wordDict:
-                    curr.append(subs)
-                    self.helper(s, wordDict, result, curr, i)
-                    curr.pop()
+        #if self.canSplit(s, wordDict): #Does pruning
+        for i in range(index+1, len(s)+1):
+            subs=s[index:i]
+            if subs in wordDict:
+                curr.append(subs)
+                self.helper(s, wordDict, result, curr, i)
+                curr.pop()
 
     def canSplit(self, s, wordDict):
         dp=[False]*(len(s)+1)

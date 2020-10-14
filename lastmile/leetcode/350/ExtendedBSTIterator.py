@@ -27,6 +27,7 @@ class ExtendedBSTIterator:
         return self.revstack
 
     def prev(self) -> int:
+        pass
 
 
 

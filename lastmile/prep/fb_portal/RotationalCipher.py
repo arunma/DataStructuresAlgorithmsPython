@@ -1,7 +1,7 @@
-def convert(char, base, rotational_factor, modu):
+def convert(char, start, rotational_factor, modu):
     order = ord(char) #eg. Z=90
-    currCharOrder = (order - base + rotational_factor) %modu #2
-    currCharAct = currCharOrder+base #C=67
+    currCharOrder = (order - start + rotational_factor) % modu #2
+    currCharAct = currCharOrder + start #C=67
     return chr(currCharAct)
 
 
