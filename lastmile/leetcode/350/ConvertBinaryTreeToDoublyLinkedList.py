@@ -8,28 +8,27 @@ class Node:
         return "{}{}".format(self.val, self.right)
 
 class ConvertBinaryTreeToDoublyLinkedList:
-    def treeToDoublyList(self, root: Node) -> Node:
-        dummy =prev = Node(0)
+    def treeToDoublyList(self, root: 'Node') -> 'Node':
+        if not root:
+            return root
+        stack = []
+        head = dummy = Node(0)
 
         node = root
-        stack = []
-
         while node or stack:
             if node:
                 stack.append(node)
                 node = node.left
             else:
                 node = stack.pop()
-
-                node.left=prev
-                prev.right=node
-                prev=prev.right
+                head.right = node
+                node.left = head
+                head = head.right
 
                 node = node.right
 
-        dummy.right.left=prev
-        prev.right=dummy.right
-
+        head.right = dummy.right
+        dummy.right.left = head
         return dummy.right
 
 if __name__ == '__main__':

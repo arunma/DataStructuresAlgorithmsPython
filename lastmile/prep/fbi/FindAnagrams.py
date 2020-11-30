@@ -34,4 +34,4 @@ if __name__ == '__main__':
     init = FindAnagrams()
     print(init.findAnagrams("cbaebabacd", "abc")) #[0,6]
     #print(init.findAnagrams("abab", "ab")) #[0,1,2]
-    #print(init.findAnagrams("acdcaeccde", "c")) #[1,3,6,7]
+    print(init.findAnagrams("acdcaeccde", "c")) #[1,3,6,7]

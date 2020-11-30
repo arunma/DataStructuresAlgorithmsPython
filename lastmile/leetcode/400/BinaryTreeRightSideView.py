@@ -1,3 +1,4 @@
+import collections
 from typing import List
 
 from TreeNode import TreeNode
@@ -39,6 +40,23 @@ class BinaryTreeRightSideView:
                     queue.append(node.right)
         return result
 
+    def rightSideViewDeque(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
+        queue = collections.deque()
+        queue.append(root)
+        result = []
+        while queue:
+            levelCount = len(queue)
+            for i in range(levelCount):
+                node = queue.popleft()
+                if i == 0:
+                    result.append(node.val)
+                if node.right:
+                    queue.append(node.right)
+                if node.left:
+                    queue.append(node.left)
+        return result
 
 if __name__ == '__main__':
     init = BinaryTreeRightSideView()
@@ -48,5 +66,6 @@ if __name__ == '__main__':
     root.left.left = TreeNode(1)
     root.left.right = TreeNode(3)
     root.right.left = TreeNode(6)
-    print(init.rightSideView(root)) #4,7,6
-    print(init.leftSideView(root)) #4,2,1
+    print(init.rightSideViewDeque(root)) #4,7,6
+    #print(init.rightSideView(root)) #4,7,6
+    #print(init.leftSideView(root)) #4,2,1

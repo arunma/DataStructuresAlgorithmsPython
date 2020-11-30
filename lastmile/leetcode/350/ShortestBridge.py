@@ -48,6 +48,6 @@ class ShortestBridge:
 
 if __name__ == '__main__':
     init = ShortestBridge()
-    print(init.shortestBridge(A = [[0,1],[1,0]]))
+    #print(init.shortestBridge(A = [[0,1],[1,0]]))
     print(init.shortestBridge(A = [[0,1,0],[0,0,0],[0,0,1]]))
-    print(init.shortestBridge(A = [[1,1,1,1,1],[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]))
+    #print(init.shortestBridge(A = [[1,1,1,1,1],[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]))
