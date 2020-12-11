@@ -2,23 +2,44 @@ from typing import List
 
 
 class InsertInterval:
+    # def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    #     result = []
+    #     merged = newInterval
+    #     for i, cinterval in enumerate(intervals):
+    #         cstart, cend = cinterval
+    #         if cend < merged[0]:
+    #             result.append(cinterval)
+    #         elif cstart > merged[1]:
+    #             result.append(merged)
+    #             return result + intervals[i:]
+    #         else:
+    #             merged[0] = min(merged[0], cstart)
+    #             merged[1] = max(merged[1], cend)
+    #
+    #     result.append(merged)
+    #     return result
+
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        intervals.sort(key=lambda i: i[0])
+
+        nstart, nend = newInterval
+
         result = []
-        merged = newInterval
-        for i, cinterval in enumerate(intervals):
-            cstart, cend = cinterval
-            if cend < merged[0]:
-                result.append(cinterval)
-            elif cstart > merged[1]:
-                result.append(merged)
+
+        for i, interval in enumerate(intervals):
+            cstart, cend = interval
+
+            if nend < cstart:
+                result.append([nstart, nend])
                 return result + intervals[i:]
+            elif cend < nstart:
+                result.append(interval)
             else:
-                merged[0] = min(merged[0], cstart)
-                merged[1] = max(merged[1], cend)
+                nstart = min(cstart, nstart)
+                nend = max(cend, nend)
+        result.append([nstart, nend])
 
-        result.append(merged)
         return result
-
 
 
 if __name__ == '__main__':

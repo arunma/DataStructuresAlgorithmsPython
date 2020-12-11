@@ -14,7 +14,7 @@ class PartitionEqualSubsetSum:
         dp = [False] * (target + 1)
         dp[0] = True
         for num in nums:
-            for csum in range(target + 1):
+            for csum in reversed(range(target + 1)):
                 if csum >= num:
                     dp[csum] = dp[csum] or dp[csum - num]
 
@@ -23,5 +23,5 @@ class PartitionEqualSubsetSum:
 
 if __name__ == '__main__':
     init = PartitionEqualSubsetSum()
-    print(init.canPartition([3,3,3,4,5])) #True
+    #print(init.canPartition([3,3,3,4,5])) #True
     print(init.canPartition([1,2,5])) #False
