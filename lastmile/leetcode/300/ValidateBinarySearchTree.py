@@ -15,7 +15,6 @@ class ValidateBinarySearchTree:
             return False
         return self.isValidBSTInner(root.left, minval, root.val) and self.isValidBSTInner(root.right, root.val, maxval)
 
-
 if __name__ == '__main__':
     init = ValidateBinarySearchTree()
     root = TreeNode(2)

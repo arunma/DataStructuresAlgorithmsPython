@@ -8,20 +8,35 @@ class ListNode:
 
 
 class AddTwoNumbers:
+    # def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    #     sent = ret = ListNode()
+    #     carry = 0
+    #     while l1 or l2 or carry:
+    #         val1 = 0
+    #         val2 = 0
+    #         if l1:
+    #             val1 = l1.val
+    #             l1 = l1.next
+    #         if l2:
+    #             val2 = l2.val
+    #             l2 = l2.next
+    #         tot = val1 + val2 + carry
+    #         carry, value = divmod(tot, 10)
+    #         ret.next = ListNode(value)
+    #         ret = ret.next
+    #     return sent.next
+
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         sent = ret = ListNode()
         carry = 0
         while l1 or l2 or carry:
-            val1 = 0
-            val2 = 0
             if l1:
-                val1 = l1.val
+                carry+= l1.val
                 l1 = l1.next
             if l2:
-                val2 = l2.val
+                carry+= l2.val
                 l2 = l2.next
-            tot = val1 + val2 + carry
-            carry, value = divmod(tot, 10)
+            carry, value = divmod(carry, 10)
             ret.next = ListNode(value)
             ret = ret.next
         return sent.next

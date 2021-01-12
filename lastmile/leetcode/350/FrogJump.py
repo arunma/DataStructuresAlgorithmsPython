@@ -23,10 +23,10 @@ class FrogJump:
 
     def canCross(self, stones):
         target = stones[-1]
-        pos = 1
+        curr = 1
         speed = 1
         memo = set()
-        return self.canCrossHelperBt(set(stones), pos, speed, target, memo)
+        return self.canCrossHelperBt(set(stones), curr, speed, target, memo)
 
     def canCrossHelperBt(self, stones, curr, speed, target, memo):
         if (curr, speed) in memo:

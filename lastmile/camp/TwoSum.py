@@ -1,3 +1,6 @@
+from typing import List
+
+
 class TwoSum:
     def twoSum(self, arr, target):
         small=0
