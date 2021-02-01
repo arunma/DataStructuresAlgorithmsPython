@@ -1,6 +1,6 @@
 from typing import List
 
-
+#Fenwick tree
 class CreateSortedArrayThroughInstructions:
     def createSortedArray(self, instructions: List[int]) -> int:
         N=max(instructions)

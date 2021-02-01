@@ -12,33 +12,30 @@ class Node:
 
 class FlattenAMultilevelDoublyLinkedList:
     def flatten(self, head: Node) -> Node:
-
         if not head:
             return head
 
-        result = Node(0,None,head,None)
-        prev = result
+        stack=[head]
 
-        stack = []
-        stack.append(head)
+        result=Node(0, None, None, None)
+        dummy=result
 
         while stack:
-            node = stack.pop()
-            prev.next = node
-            node.prev = prev
+            node=stack.pop()
+
+            result.next=node
+            node.prev=result
+            result=result.next
 
             if node.next:
                 stack.append(node.next)
-                node.next = None
-
+                node.next=None
             if node.child:
                 stack.append(node.child)
-                node.child = None
-            prev = node
+                node.child=None
 
-        result.next.prev=None
-        return result.next
-
+        dummy.next.prev=None
+        return dummy.next
 
 if __name__ == '__main__':
     init = FlattenAMultilevelDoublyLinkedList()
@@ -70,4 +67,4 @@ if __name__ == '__main__':
     eight.child = eleven
     eleven.next = twelve
 
-    print(init.flatten(one))
+    print(init.flatten(one)) #1->2->3->7->8->11->12->9->10->4->5->6->

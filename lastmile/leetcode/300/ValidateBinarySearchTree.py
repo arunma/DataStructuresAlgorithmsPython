@@ -17,13 +17,19 @@ class ValidateBinarySearchTree:
 
 if __name__ == '__main__':
     init = ValidateBinarySearchTree()
-    root = TreeNode(2)
-    root.left = TreeNode(1)
-    root.right = TreeNode(3)
-    print(init.isValidBST(root))  # true
+    # root = TreeNode(2)
+    # root.left = TreeNode(1)
+    # root.right = TreeNode(3)
+    # print(init.isValidBST(root))  # true
+    # root = TreeNode(5)
+    # root.left = TreeNode(1)
+    # root.right = TreeNode(4)
+    # root.right.left = TreeNode(3)
+    # root.right.right = TreeNode(6)
+
     root = TreeNode(5)
     root.left = TreeNode(1)
-    root.right = TreeNode(4)
-    root.right.left = TreeNode(3)
-    root.right.right = TreeNode(6)
+    root.right = TreeNode(6)
+    root.right.left = TreeNode(7)
+    root.right.right = TreeNode(8)
     print(init.isValidBST(root))  # false

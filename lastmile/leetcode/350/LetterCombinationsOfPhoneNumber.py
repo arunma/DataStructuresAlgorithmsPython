@@ -20,4 +20,4 @@ class LetterCombinationsOfPhoneNumber:
 if __name__ == '__main__':
     init = LetterCombinationsOfPhoneNumber()
     print(init.letterCombinations("23"))  # ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
-    print(init.letterCombinations(""))  # ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
+    print(init.letterCombinations(""))  # []

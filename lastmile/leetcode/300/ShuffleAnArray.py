@@ -9,15 +9,9 @@ class ShuffleAnArray:
         self.store = nums.copy()
 
     def reset(self) -> List[int]:
-        """
-        Resets the array to its original configuration and return it.
-        """
         return self.original
 
     def shuffle(self) -> List[int]:
-        """
-        Returns a random shuffling of the array.
-        """
         for i in range(len(self.store)):
             randind = random.randrange(i, len(self.store))
             self.store[i], self.store[randind] = self.store[randind], self.store[i]

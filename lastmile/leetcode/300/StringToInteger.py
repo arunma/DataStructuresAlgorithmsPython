@@ -23,9 +23,9 @@ class StringToInteger:
 
 if __name__ == '__main__':
     init = StringToInteger()
-    print(init.myAtoi("42"))  # 42
-    print(init.myAtoi("   -42"))  # -42
-    print(init.myAtoi("4193 with words"))  # 4193
-    print(init.myAtoi("words and 987"))  # 0
+    #print(init.myAtoi("42"))  # 42
+    #print(init.myAtoi("   -42"))  # -42
+    #print(init.myAtoi("4193 with words"))  # 4193
+    #print(init.myAtoi("words and 987"))  # 0
     print(init.myAtoi("-91283472332"))  # -2147483648
-    print(init.myAtoi("3.14"))  # 3
+    #print(init.myAtoi("3.14"))  # 3

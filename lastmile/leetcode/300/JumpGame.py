@@ -4,10 +4,12 @@ from typing import List
 class JumpGame:
     def canJump(self, nums: List[int]) -> bool:
         maxReach=0
-        for i, num in enumerate(nums):
-            if maxReach<i:
+
+        for i,num in enumerate(nums):
+            if i>maxReach:
                 return False
-            maxReach=max(maxReach, i+num) #What is the maximum index you could reach
+
+            maxReach=max(i+num, maxReach)
         return True
 
 

@@ -12,29 +12,31 @@ class SortList:
 
         while fast and fast.next:
             prev=slow
-            slow = slow.next
+            slow=slow.next
             fast=fast.next.next
 
-        prev.next=None #Disconnect first and second part
-
+        prev.next=None
         left=self.sortList(head)
         right=self.sortList(slow)
+
         return self.merge(left, right)
 
+
     def merge(self, left, right):
-        merged=ListNode()
-        rethead=merged
+        dummy=head=ListNode()
+
         while left and right:
             if left.val<right.val:
-                merged.next=ListNode(left.val)
+                head.next=ListNode(left.val)
                 left=left.next
             else:
-                merged.next = ListNode(right.val)
+                head.next=ListNode(right.val)
                 right=right.next
-            merged=merged.next
+            head=head.next
 
-        merged.next=left or right
-        return rethead.next
+        head.next=left or right
+
+        return dummy.next
 
 
 if __name__ == '__main__':
