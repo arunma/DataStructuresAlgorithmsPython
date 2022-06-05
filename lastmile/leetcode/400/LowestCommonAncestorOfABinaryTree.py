@@ -31,7 +31,7 @@ class LowestCommonAncestorOfABinaryTree:
         parent = {root: None}
 
         while p not in parent or q not in parent:
-            node = stack.pop()
+            node = stack.pop(0)
             if node.left:
                 stack.append(node.left)
                 parent[node.left] = node

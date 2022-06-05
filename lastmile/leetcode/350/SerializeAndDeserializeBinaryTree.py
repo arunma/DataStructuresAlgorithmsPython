@@ -1,4 +1,4 @@
-from TreeNode import TreeNode
+from leetcode.commons.TreeNode import TreeNode
 
 
 class SerializeAndDeserializeBinaryTree:
@@ -38,11 +38,6 @@ class SerializeAndDeserializeBinaryTree:
                 queue.append(node.right)
             index+=1
         return root
-
-
-
-
-
 
 
 if __name__ == '__main__':

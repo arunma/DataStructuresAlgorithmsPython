@@ -5,7 +5,7 @@ class LongestPalindromicSubstring:
         for i in range(1, N + 1):
             odd = self.getLongestFromHere(s, i, i)
             even = self.getLongestFromHere(s, i, i + 1)
-            print ("odd:" + odd + ", even: "+ even)
+            #print ("odd:" + odd + ", even: "+ even)
             longest = max(longest, odd, even, key=len)
         return longest
 
@@ -19,3 +19,4 @@ class LongestPalindromicSubstring:
 if __name__ == '__main__':
     init = LongestPalindromicSubstring()
     print(init.longestPalindrome(s = "babad"))
+    print(init.longestPalindrome(s = "bb"))

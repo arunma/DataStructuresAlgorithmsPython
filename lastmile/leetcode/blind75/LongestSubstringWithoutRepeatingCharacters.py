@@ -21,3 +21,4 @@ class LongestSubstringWithoutRepeatingCharacters:
 if __name__ == '__main__':
     init = LongestSubstringWithoutRepeatingCharacters()
     print(init.lengthOfLongestSubstring("abcabcbb"))
+    print(init.lengthOfLongestSubstring("pwwkew"))
