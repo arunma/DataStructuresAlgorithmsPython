@@ -1,6 +1,6 @@
 from typing import List
 
-from TreeNode import TreeNode
+from leetcode.commons.TreeNode import TreeNode
 
 
 class BinaryTreePreOrderTraveral:

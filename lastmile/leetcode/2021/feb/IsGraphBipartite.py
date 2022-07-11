@@ -10,36 +10,47 @@ class IsGraphBipartite:
         colors = {}
         for node in range(len(graph)):
             if node not in colors:
-                colors[node] = 1
-            if self.isNeighbourSameColor(node, graph, colors, colors[node]):
+                colors[node]=1
+            if not self.areNeighboursValidColor(node, colors[node], graph, colors):
                 return False
         return True
 
-    def isNeighbourSameColor(self, node, graph, colors, nodeColor):
-        for nei in graph[node]:
-            if nei in colors and colors[nei] == nodeColor:
-                return True
-            elif nei not in colors:
-                colors[nei] = -nodeColor
-                if self.isNeighbourSameColor(nei, graph, colors, colors[nei]):
-                    return False
-        return False
 
-    # def isBipartite(self, graph: List[List[int]]) -> bool:
-    #     if not graph:
-    #         return True
-    #
-    #     colors={0:1}
-    #     queue=[(0)]
-    #     while queue:
-    #         node=queue.pop(0)
-    #         for nei in graph[node]:
-    #             if nei not in colors:
-    #                 colors[nei]=-colors[node]
-    #                 queue.append(nei)
-    #             elif colors[nei]==colors[node]:
+    # def areNeighboursValidColor(self, pnode, pcolor, graph, colors):
+    #     for nei in graph[pnode]:
+    #         if nei in colors and colors[nei]==pcolor:
+    #             return False
+    #         elif nei not in colors:
+    #             colors[nei]=-pcolor
+    #             if not self.areNeighboursValidColor(nei, colors[nei], graph, colors):
     #                 return False
     #     return True
+
+    def isBipartite(self, graph: List[List[int]]) -> bool:
+        if not graph:
+            return True
+
+        colors={}
+
+        for node in range(len(graph)):
+            if node in colors:
+                continue
+
+            if node not in colors:
+                colors[node]=1
+            queue=[node]
+
+            while queue:
+                cnode=queue.pop(0)
+                for nei in graph[cnode]:
+                    if nei in colors and colors[nei]==colors[cnode]:
+                        return False
+                    elif nei not in colors:
+                        colors[nei]=-colors[cnode]
+                        queue.append(nei)
+        return True
+
+
 
 
 

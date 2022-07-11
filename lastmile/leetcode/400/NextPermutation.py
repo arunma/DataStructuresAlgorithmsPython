@@ -27,6 +27,8 @@ class NextPermutation:
             left+=1
             right-=1
 
+        return nums
+
 
 
 
@@ -38,3 +40,4 @@ if __name__ == '__main__':
     init.nextPermutation(x) #[1,3,1,2,4]
     print(x)
     print(init.nextPermutation([1,2,3])) #[1,3,2]
+    print(init.nextPermutation([1,3,2])) #[1,3,2]

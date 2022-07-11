@@ -1,6 +1,7 @@
 from typing import List
 
-from TreeNode import TreeNode
+from leetcode.commons.TreeNode import TreeNode
+
 
 class BinaryTreeInorderTraversal:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
@@ -21,8 +22,14 @@ class BinaryTreeInorderTraversal:
 
 if __name__ == '__main__':
     init = BinaryTreeInorderTraversal()
-    root = TreeNode(3)
+    # root = TreeNode(3)
+    # root.left = TreeNode(2)
+    # root.right = TreeNode(5)
+    # root.right.left = TreeNode(4)
+    root = TreeNode(5)
     root.left = TreeNode(2)
-    root.right = TreeNode(5)
-    root.right.left = TreeNode(4)
+    root.left.right = TreeNode(4)
+    root.left.right.left = TreeNode(3)
+    root.left.left = TreeNode(1)
+    root.right = TreeNode(6)
     print(init.inorderTraversal(root))

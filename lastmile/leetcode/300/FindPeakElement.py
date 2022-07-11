@@ -15,7 +15,9 @@ class FindPeakElement:
 if __name__ == '__main__':
     init = FindPeakElement()
     print(init.findPeakElement([1, 2, 3, 1]))  # 2
-    print(init.findPeakElement([1, 2, 1, 3, 5, 6, 4]))  # 1 or 5
-    print(init.findPeakElement([2, 1]))  # 0
-    print(init.findPeakElement([1]))  # 0
-    print(init.findPeakElement([1, 2]))  # 1
+    print(init.findPeakElement([1, 2, 5]))  #
+    print(init.findPeakElement([5,3,2,1]))  #
+    # print(init.findPeakElement([1, 2, 1, 3, 5, 6, 4]))  # 1 or 5
+    # print(init.findPeakElement([2, 1]))  # 0
+    # print(init.findPeakElement([1]))  # 0
+    # print(init.findPeakElement([1, 2]))  # 1

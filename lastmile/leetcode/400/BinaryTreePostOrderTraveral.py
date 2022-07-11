@@ -1,27 +1,41 @@
 import collections
 from typing import List
 
-from TreeNode import TreeNode
+from leetcode.commons.TreeNode import TreeNode
 
 
 class BinaryTreePostOrderTraveral:
 #https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45551/Preorder-Inorder-and-Postorder-Iteratively-Summarization
+    # def postorderTraversal(self, root: TreeNode) -> List[int]:
+    #     node = root
+    #     stack = []
+    #     result = collections.deque()
+    #
+    #     while node or stack:
+    #         if node:
+    #             result.appendleft(node.val)
+    #             stack.append(node)
+    #             node = node.right
+    #         else:
+    #             node = stack.pop()
+    #             node = node.left
+    #     return list(result)
+
     def postorderTraversal(self, root: TreeNode) -> List[int]:
-        node = root
-        stack = []
-        result = collections.deque()
+        result=[]
+        stack=[]
+        node=root
 
-        while node or stack:
+        while stack or node:
             if node:
-                result.appendleft(node.val)
+                result.append(node.val)
                 stack.append(node)
-                node = node.right
+                node=node.right
             else:
-                node = stack.pop()
-                node = node.left
-        return list(result)
+                node=stack.pop()
+                node=node.left
 
-
+        return result[::-1]
 
 if __name__ == '__main__':
     init = BinaryTreePostOrderTraveral()
@@ -32,4 +46,4 @@ if __name__ == '__main__':
     root.left.left = TreeNode(1)
     root.right = TreeNode(6)
 
-    print(init.postorderTraversal(root))
+    print(init.postorderTraversal(root)) #[1, 3, 4, 2, 6, 5]

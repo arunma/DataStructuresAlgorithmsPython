@@ -28,5 +28,5 @@ class EditDistance:
 if __name__ == '__main__':
     init = EditDistance()
     print(init.minDistance(word1="horse", word2="ros"))  # 3
-    print(init.minDistance(word1="intention", word2="execution"))  # 5
-    print(init.minDistance(word1="a", word2="b"))  # 1
+    # print(init.minDistance(word1="intention", word2="execution"))  # 5
+    # print(init.minDistance(word1="a", word2="b"))  # 1

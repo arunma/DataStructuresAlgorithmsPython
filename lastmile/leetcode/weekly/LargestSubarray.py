@@ -16,4 +16,4 @@ class LargestSubarray:
 
 if __name__ == '__main__':
     init = LargestSubarray()
-    init.longestSubarray([10, 1, 2, 4, 7, 2], 5)
+    print(init.longestSubarray([10, 1, 2, 4, 7, 2], 5))

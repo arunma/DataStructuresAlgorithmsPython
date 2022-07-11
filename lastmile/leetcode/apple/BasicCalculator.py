@@ -48,6 +48,8 @@ class BasicCalculator:
 
 if __name__ == '__main__':
     init = BasicCalculator()
-    #print(init.calculate("1 + 1")) #2
-    print(init.calculate(" 2-1 + 2 ")) #3
-    print(init.calculate("(1+(4+5+2)-3)+(6+8)")) #23
+    #rint(init.calculate("1 + 1")) #2
+    #print(init.calculate(" 2-1 + 2 ")) #3
+    #print(init.calculate("(1+(4+5+2)-3)+(6+8)")) #23
+    print(init.calculate("5-3/2")) #??4
+
