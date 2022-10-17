@@ -48,7 +48,7 @@ class AlienDictionary:
 
 if __name__ == '__main__':
     init = AlienDictionary()
-    print(init.alienOrder(["abc", "ab"]))
+    print(init.alienOrder(["abc", "ab"])) #""
     print(init.alienOrder([
         "z",
         "z"

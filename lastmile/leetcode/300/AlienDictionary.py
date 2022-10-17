@@ -85,20 +85,6 @@ class AlienDictionary:
 
     WHITE, GRAY, BLACK = 0, 1, 2
 
-    def hasCycle(self, graph, colors, stack, node):
-        colors[node] = self.GRAY
-        for nei in graph[node]:
-            if colors[nei] == self.WHITE:
-                if (self.hasCycle(graph, colors, stack, nei)):
-                    return True
-            elif colors[nei] == self.GRAY:
-                return True
-            elif colors[nei] == self.BLACK:
-                continue
-
-        stack.append(node)
-        colors[node] = self.BLACK
-        return False
 
     def alienOrder(self, words: List[str]) -> str:
 
@@ -127,6 +113,22 @@ class AlienDictionary:
 
         stack.reverse()
         return ''.join(stack)
+
+    def hasCycle(self, graph, colors, stack, node):
+        colors[node] = self.GRAY
+        for nei in graph[node]:
+            if colors[nei] == self.WHITE:
+                if (self.hasCycle(graph, colors, stack, nei)):
+                    return True
+            elif colors[nei] == self.GRAY:
+                return True
+            elif colors[nei] == self.BLACK:
+                continue
+
+        stack.append(node)
+        colors[node] = self.BLACK
+        return False
+
 
 if __name__ == '__main__':
     init = AlienDictionary()

@@ -4,6 +4,9 @@ from typing import List
 
 class GraphValidTree:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges)!=n-1:
+            return False
+
         graph=defaultdict(list)
 
         for u,v in edges:
@@ -35,3 +38,4 @@ if __name__ == '__main__':
     init = GraphValidTree()
     print(init.validTree(n = 5, edges = [[0,1],[0,2],[0,3],[1,4]])) #true
     print(init.validTree(n = 5, edges = [[0,1],[1,2],[2,3],[1,3],[1,4]]))#false
+    print(init.validTree(4, [[0,1],[2,3]])) #False
